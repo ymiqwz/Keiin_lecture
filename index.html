@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Моя биография</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="card">
+    <h1>ymiqwz</h1>
+
+
+    <img src="D:\Работы\WEB\photo\mee.jpg.jpeg" alt="Моё фото">
+
+    <div class="info">
+        <p><span>Имя:</span> Юсаров Ас Сами Рашидович Первый, Царь царей после Леонид спартанца</p>
+        <p><span>Возраст:</span> 300 лет до нашей эры</p>
+        <p><span>Курс:</span> ITC-1-23</p>
+    </div>
+
+    <h2>Интересы</h2>
+    <p><span>Любимое хобби:</span> Рисование, Баскетбол, Играть в игры</p>
+
+    <p><span>Любимый фильм:</span></p>
+    <div class="video">
+        <iframe src="https://www.youtube.com/embed/pZ8v1aXfD64" 
+                title="Любимый фильм" 
+                frameborder="0" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                allowfullscreen>
+        </iframe>
+    </div>
+
+    <p><span>Жанр:</span> Боевик, Фэнтези, Мифология</p>
+
+    <p><span>Любимая игра:</span> Elden Ring</p>
+
+
+    <img class="square-photo" src="photo/eld.jpg.jpg" alt="Фото игры">
+
+    <h2>Любимые песни</h2>
+    <div class="music">
+        <div class="video">
+            <iframe src="https://www.youtube.com/embed/SsvM80bIA1k" title="Песня 1" frameborder="0" allowfullscreen></iframe>
+        </div>
+        <div class="video">
+            <iframe src="https://www.youtube.com/embed/8Hi4G5nNnQM" title="Песня 2" frameborder="0" allowfullscreen></iframe>
+        </div>
+        <div class="video">
+            <iframe src="https://www.youtube.com/embed/81c-alO8TVQ" title="Песня 3" frameborder="0" allowfullscreen></iframe>
+        </div>
+        <div class="video">
+            <iframe src="https://www.youtube.com/embed/itePeBdM9MY" title="Песня 4" frameborder="0" allowfullscreen></iframe>
+        </div>
+    </div>
+
+
+    <button id="crazy-btn">Нажми меня!</button>
+
+
+    <audio id="bg-music" src="mp3/Blero_-_You_Kiss_Me_La_La_La_74027245.mp3"></audio>
+</div>
+
+<script>
+
+const btn = document.getElementById('crazy-btn');
+const music = document.getElementById('bg-music');
+let clickCount = 0;
+
+btn.addEventListener('mouseenter', () => {
+    const x = Math.random() * (window.innerWidth - btn.offsetWidth);
+    const y = Math.random() * (window.innerHeight - btn.offsetHeight);
+    btn.style.position = 'absolute';
+    btn.style.left = x + 'px';
+    btn.style.top = y + 'px';
+});
+
+btn.addEventListener('click', () => {
+    clickCount++;
+    if (clickCount === 3) {
+        music.play();
+        alert('🎵 Фоновая музыка включена!');
+    }
+});
+
+
+document.addEventListener('mousemove', function(e) {
+    const trail = document.createElement('div');
+    trail.className = 'trail';
+    trail.style.left = e.clientX + 'px';
+    trail.style.top = e.clientY + 'px';
+    document.body.appendChild(trail);
+    setTimeout(() => trail.remove(), 800);
+});
+</script>
+
+</body>
+</html>
