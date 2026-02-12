@@ -1,4 +1,4 @@
-/* ==== Общие стили страницы ==== */
+
 body.allworks-page {
     margin: 0;
     background: #fff;
@@ -11,7 +11,7 @@ body.allworks-page {
     position: relative;
 }
 
-/* ==== Ссылка "Главная" слева сверху ==== */
+
 .main-link {
     position: fixed;
     top: 15px;
@@ -29,7 +29,7 @@ body.allworks-page {
     text-shadow: 0 0 10px #ff4dc4, 0 0 20px #ff99d6;
 }
 
-/* ==== Заголовок по центру ==== */
+
 .page-title {
     margin-top: 100px;
     font-size: 48px;
@@ -38,7 +38,7 @@ body.allworks-page {
     animation: glow 2s infinite alternate;
 }
 
-/* ==== Карточка работы ==== */
+
 .work-card {
     margin-top: 80px;
     background: #fff0f8;
@@ -58,7 +58,7 @@ body.allworks-page {
     box-shadow: 0 0 30px rgba(255,77,196,0.6), inset 0 0 15px rgba(255,77,196,0.3);
 }
 
-/* ==== Информация внутри карточки ==== */
+
 .work-info {
     display: flex;
     align-items: center;
@@ -74,7 +74,6 @@ body.allworks-page {
     color: #ff4dc4;
 }
 
-/* ==== Кнопка перехода ==== */
 .work-button {
     background: rgba(255,77,196,0.2);
     border: 2px solid #ff4dc4;
@@ -92,7 +91,7 @@ body.allworks-page {
     transform: scale(1.05);
 }
 
-/* ==== Анимации ==== */
+
 @keyframes glow {
     0% { text-shadow: 0 0 5px #ff4dc4, 0 0 15px #ff99d6; }
     50% { text-shadow: 0 0 15px #ff4dc4, 0 0 25px #ff99d6; }
@@ -105,7 +104,7 @@ body.allworks-page {
     100% { transform: translateY(0); }
 }
 
-/* ==== Смайлики по карточке ==== */
+
 .work-card::after {
     content: "✨🌸💼";
     position: absolute;
@@ -121,3 +120,4 @@ body.allworks-page {
     50% { opacity: 0.6; transform: translate(3px,-3px) rotate(15deg); }
     100% { opacity: 0.3; transform: translate(-3px,3px) rotate(-15deg); }
 }
+
