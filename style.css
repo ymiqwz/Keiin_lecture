@@ -107,3 +107,26 @@ img {
     0% { opacity: 1; transform: scale(1) translate(-50%, -50%); }
     100% { opacity: 0; transform: scale(2) translate(-50%, -50%); }
 }
+/* ==== Верхняя навигация ==== */
+.top-nav {
+    position: fixed;
+    top: 15px;
+    left: 15px;
+    display: flex;
+    gap: 20px;
+    z-index: 1000;
+}
+
+.nav-link {
+    font-size: 18px;
+    font-weight: bold;
+    color: #FF1493;
+    text-decoration: none;
+    text-shadow: 0 0 5px #FF1493, 0 0 15px #FF69B4;
+    transition: 0.3s;
+}
+
+.nav-link:hover {
+    color: #FF69B4;
+    text-shadow: 0 0 10px #FF1493, 0 0 25px #FF69B4;
+}
