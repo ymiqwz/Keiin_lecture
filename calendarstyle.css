@@ -1,0 +1,194 @@
+/* ==== Основной стиль календаря ==== */
+body {
+    margin: 0;
+    background: #fff;
+    font-family: "Segoe UI", sans-serif;
+    color: #333;
+}
+
+h1 {
+    text-align: center;
+    margin: 30px 0;
+    font-size: 44px;
+    color: #ff4dc4;
+    text-shadow: 0 0 5px #ff4dc4, 0 0 15px #ff99d6, 0 0 25px #ff99d6;
+}
+
+.calendar {
+    max-width: 1100px;
+    margin: auto;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 15px;
+}
+
+.day-name {
+    text-align: center;
+    font-weight: bold;
+    color: #ff66c4;
+    text-shadow: 0 0 8px #ff99d6;
+    font-size: 18px;
+}
+
+.day {
+    background: #fff0f8;
+    border-radius: 16px;
+    padding: 12px;
+    min-height: 120px;
+    box-shadow: 0 4px 10px rgba(255, 77, 196, 0.3), inset 0 0 10px rgba(255, 77, 196, 0.2);
+    transition: 0.3s;
+    position: relative;
+}
+
+.day:hover {
+    transform: translateY(-6px) scale(1.05);
+    box-shadow: 0 0 25px rgba(255, 77, 196, 0.7), inset 0 0 15px rgba(255, 77, 196, 0.3);
+}
+
+.date {
+    font-size: 20px;
+    font-weight: bold;
+    color: #ff3399;
+    margin-bottom: 6px;
+}
+
+.event {
+    font-size: 14px;
+    margin-top: 6px;
+    padding: 6px 10px;
+    border-radius: 12px;
+    background: rgba(255, 77, 196, 0.15);
+    border: 1px solid #ff4dc4;
+    box-shadow: 0 0 6px rgba(255, 77, 196, 0.5);
+    transition: 0.2s;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.event.ufc {
+    background: rgba(255,20,147,0.2);
+    border: 1px solid #ff1493;
+    box-shadow: 0 0 10px #ff1493;
+}
+
+.event.ramadan {
+    background: rgba(128,0,128,0.2);
+    border: 1px solid #800080;
+    box-shadow: 0 0 8px #a64ca6;
+    color: #4b0082;
+    font-weight: bold;
+}
+
+.day.weekend .date {
+    color: #ff69b4;
+    font-weight: bold;
+}
+
+.empty {
+    visibility: hidden;
+}
+
+.day::after {
+    content: "🌸✨";
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    font-size: 16px;
+    opacity: 0.3;
+    animation: sparkle 2s infinite alternate;
+}
+
+@keyframes sparkle {
+    0% { opacity: 0.2; transform: translate(0,0) rotate(0deg);}
+    50% { opacity: 0.5; transform: translate(2px,-2px) rotate(10deg);}
+    100% { opacity: 0.3; transform: translate(-2px,2px) rotate(-10deg);}
+}
+
+/* ==== Меню ⋮ ==== */
+.menu-wrapper {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    cursor: pointer;
+    user-select: none;
+}
+
+.menu-button {
+    font-size: 18px;
+    color: #ff4dc4;
+    text-shadow: 0 0 5px #ff4dc4, 0 0 10px #ff99d6;
+}
+
+.menu-content {
+    display: none;
+    position: absolute;
+    top: 25px;
+    right: 0;
+    background: rgba(245,245,245,0.95);
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    min-width: 100px;
+    z-index: 100;
+    flex-direction: column;
+}
+
+.menu-content a {
+    display: block;
+    padding: 6px 12px;
+    color: #ff4dc4;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.2s;
+}
+
+.menu-content a:hover {
+    background: rgba(255,77,196,0.2);
+    border-radius: 5px;
+}
+
+.menu-wrapper.active .menu-content {
+    display: flex;
+}
+/* ==== Ссылка "Главное" слева вверху ==== */
+.main-link {
+    position: fixed;
+    top: 15px;
+    left: 15px;
+    font-size: 20px;
+    font-weight: bold;
+    color: #ff4dc4;
+    text-decoration: none;
+    text-shadow: 0 0 5px #ff4dc4, 0 0 10px #ff99d6;
+    transition: 0.2s;
+    z-index: 1000;
+}
+
+.main-link:hover {
+    color: #ff3399;
+    text-shadow: 0 0 10px #ff4dc4, 0 0 20px #ff99d6;
+}
+/* ==== Верхние ссылки слева ==== */
+.top-links {
+    position: fixed;
+    top: 15px;
+    left: 15px;
+    display: flex;
+    gap: 20px;
+    z-index: 1000;
+}
+
+.top-links .nav-link {
+    font-size: 20px;
+    font-weight: bold;
+    color: #ff4dc4;
+    text-decoration: none;
+    text-shadow: 0 0 5px #ff4dc4, 0 0 10px #ff99d6;
+    transition: 0.2s;
+}
+
+.top-links .nav-link:hover {
+    color: #ff3399;
+    text-shadow: 0 0 10px #ff4dc4, 0 0 20px #ff99d6;
+}
