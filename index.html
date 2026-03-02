@@ -1,69 +1,65 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Моя биография</title>
+    <title>My Biography</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-   
-<div class="top-nav">
-    <a href="index.html" class="nav-link">Главная</a>
-    <a href="allworks.html" class="nav-link">Работы</a>
-</div>
 
+<div class="top-nav">
+    <a href="index.html" class="nav-link">Home</a>
+    <a href="allworks.html" class="nav-link">Works</a>
+</div>
 
 <div class="card">
     <h1>ymiqwz</h1>
 
-
-    <img src="jph/mee.jpg.jpeg" alt="Моё фото" class="circle-photo">
+    <img src="jph/mee.jpg.jpeg" alt="My photo" class="circle-photo">
 
     <div class="info">
-        <p><span>Имя:</span> Юсаров Ас Сами Рашидович Первый, Царь царей после Леонид спартанца</p>
-        <p><span>Возраст:</span> 300 лет до нашей эры</p>
-        <p><span>Курс:</span> ITC-1-23</p>
+        <p><span>Name:</span> Yusarov As Sami Rashidovich First, King of kings after Spartan Leonidas</p>
+        <p><span>Age:</span> 300 years BC</p>
+        <p><span>Course:</span> ITC-1-23</p>
     </div>
 
-    <h2>Интересы</h2>
-    <p><span>Любимое хобби:</span> Рисование, Баскетбол, Играть в игры</p>
+    <h2>Interests</h2>
+    <p><span>Favorite hobbies:</span> Drawing, Basketball, Playing games</p>
 
-    <p><span>Любимый фильм:</span></p>
+    <p><span>Favorite movie:</span></p>
     <div class="video">
         <iframe src="https://www.youtube.com/embed/pZ8v1aXfD64" 
-                title="Любимый фильм" 
+                title="Favorite movie" 
                 frameborder="0" 
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
                 allowfullscreen>
         </iframe>
     </div>
 
-    <p><span>Жанр:</span> Боевик, Фэнтези, Мифология</p>
+    <p><span>Genre:</span> Action, Fantasy, Mythology</p>
 
-    <p><span>Любимая игра:</span> Elden Ring</p>
+    <p><span>Favorite game:</span> Elden Ring</p>
 
+    <img src="jph/eld.jpg.jpg" alt="Game photo" class="square-photo">
 
-    <img src="photo/eld.jpg.jpg" alt="Фото игры" class="square-photo">
+    <h2>Favorite songs</h2>
 
-    <h2>Любимые песни</h2>
     <div class="music">
         <div class="video">
-            <iframe src="https://www.youtube.com/embed/SsvM80bIA1k" title="Песня 1" frameborder="0" allowfullscreen></iframe>
+            <iframe src="https://www.youtube.com/embed/SsvM80bIA1k" title="Song 1" frameborder="0" allowfullscreen></iframe>
         </div>
         <div class="video">
-            <iframe src="https://www.youtube.com/embed/8Hi4G5nNnQM" title="Песня 2" frameborder="0" allowfullscreen></iframe>
+            <iframe src="https://www.youtube.com/embed/8Hi4G5nNnQM" title="Song 2" frameborder="0" allowfullscreen></iframe>
         </div>
         <div class="video">
-            <iframe src="https://www.youtube.com/embed/81c-alO8TVQ" title="Песня 3" frameborder="0" allowfullscreen></iframe>
+            <iframe src="https://www.youtube.com/embed/81c-alO8TVQ" title="Song 3" frameborder="0" allowfullscreen></iframe>
         </div>
         <div class="video">
-            <iframe src="https://www.youtube.com/embed/itePeBdM9MY" title="Песня 4" frameborder="0" allowfullscreen></iframe>
+            <iframe src="https://www.youtube.com/embed/itePeBdM9MY" title="Song 4" frameborder="0" allowfullscreen></iframe>
         </div>
     </div>
 
-
-    <button id="crazy-btn">Нажми меня!</button>
-
+    <button id="crazy-btn">Click me!</button>
 
     <audio id="bg-music" src="mp3/Blero_-_You_Kiss_Me_La_La_La_74027245.mp3"></audio>
 </div>
@@ -86,10 +82,9 @@ btn.addEventListener('click', () => {
     clickCount++;
     if (clickCount === 3) {
         music.play();
-        alert('🎵 Фоновая музыка включена!');
+        alert('🎵 Background music enabled!');
     }
 });
-
 
 document.addEventListener('mousemove', function(e) {
     const trail = document.createElement('div');
@@ -103,7 +98,3 @@ document.addEventListener('mousemove', function(e) {
 
 </body>
 </html>
-
-
-
-
