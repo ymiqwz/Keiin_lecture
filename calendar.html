@@ -1,78 +1,154 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Красивый Календарь 2026</title>
+<title>Beautiful Calendar 2026</title>
 <link rel="stylesheet" href="calendarstyle.css">
 </head>
 
 <body>
 
-    
 <div class="top-links">
-    <a href="index.html" class="nav-link">Главная</a>
-    <a href="allworks.html" class="nav-link">Работы</a>
+    <a href="index.html" class="nav-link">Home</a>
+    <a href="allworks.html" class="nav-link">Works</a>
 </div>
 
-
-<h1>🌸 Календарь Февраль 2026 🌸</h1>
-
-<div class="calendar">
-
-<div class="day-name">Пн</div>
-<div class="day-name">Вт</div>
-<div class="day-name">Ср</div>
-<div class="day-name">Чт</div>
-<div class="day-name">Пт</div>
-<div class="day-name">Сб</div>
-<div class="day-name">Вс</div>
-
-<!-- Пустые дни до 1 февраля -->
-<div class="day empty"></div>
-<div class="day empty"></div>
-<div class="day empty"></div>
-<div class="day empty"></div>
-<div class="day empty"></div>
-<div class="day empty"></div>
-
-
-<div class="day weekend"><div class="date">1</div><a class="event" href="#">🏋️ Тренировка</a></div>
-<div class="day"><div class="date">2</div><a class="event" href="#">🥊 Спарринг</a></div>
-<div class="day"><div class="date">3</div><a class="event ufc" href="https://www.ufc.com/event/ufc-fight-night-feb-3" target="_blank">UFC: Рамазан vs Сильва</a></div>
-<div class="day"><div class="date">4</div><a class="event" href="#">🏃 Кардио</a></div>
-<div class="day"><div class="date">5</div><a class="event" href="#">🏋️ Зал</a></div>
-<div class="day weekend"><div class="date">6</div><a class="event" href="#">😴 Отдых</a></div>
-<div class="day weekend"><div class="date">7</div><a class="event ufc" href="https://www.ufc.com/event/ufc-fight-night-feb-7" target="_blank">UFC Fight Night</a></div>
-
-<div class="day"><div class="date">8</div><a class="event" href="#">🏃 Бег</a></div>
-<div class="day"><div class="date">9</div><a class="event" href="#">🏋️ Силовая</a></div>
-<div class="day"><div class="date">10</div><a class="event" href="#">🥋 Техника</a></div>
-<div class="day"><div class="date">11</div><a class="event ufc" href="https://www.ufc.com/event/ufc-ppv-feb-11" target="_blank">Бой Рамазан — титул</a></div>
-<div class="day"><div class="date">12</div><a class="event" href="#">🧘 Растяжка</a></div>
-<div class="day"><div class="date">13</div><a class="event" href="#">🏋️ Зал</a></div>
-<div class="day weekend"><div class="date">14</div><a class="event" href="#">😴 Отдых</a></div>
-
-<div class="day"><div class="date">15</div><a class="event" href="#">🏃 Кардио</a></div>
-<div class="day"><div class="date">16</div><a class="event" href="#">🥊 Спарринг</a></div>
-<div class="day"><div class="date">17</div><a class="event ufc" href="https://www.ufc.com/event/ufc-ppv-feb-17" target="_blank">UFC PPV</a></div>
-<div class="day"><div class="date">18</div><a class="event" href="#">🤼 Борьба</a></div>
-
-
-<div class="day"><div class="date">19</div><a class="event ramadan" href="#">🌙 Начало Рамадана</a></div>
-<div class="day"><div class="date">20</div><a class="event ramadan" href="#">🌙 Рамадан</a></div>
-<div class="day"><div class="date">21</div><a class="event ramadan" href="#">🌙 Рамадан</a></div>
-<div class="day"><div class="date">22</div><a class="event ramadan" href="#">🌙 Рамадан</a></div>
-
-<div class="day"><div class="date">23</div><a class="event" href="#">🏋️ Тренировка</a></div>
-<div class="day"><div class="date">24</div><a class="event" href="#">🥊 Спарринг</a></div>
-<div class="day"><div class="date">25</div><a class="event" href="#">🥋 Техника</a></div>
-<div class="day"><div class="date">26</div><a class="event" href="#">🏃 Кардио</a></div>
-<div class="day"><div class="date">27</div><a class="event" href="#">🧘 Растяжка</a></div>
-<div class="day weekend"><div class="date">28</div><a class="event" href="#">😴 Отдых</a></div>
-
+<div class="calendar-header">
+    <button id="prevMonth" class="arrow">❮</button>
+    <h1 id="monthTitle">🌸 Calendar 🌸</h1>
+    <button id="nextMonth" class="arrow">❯</button>
 </div>
+
+<div class="calendar" id="calendar"></div>
+
+<script>
+const monthTitle = document.getElementById("monthTitle");
+const calendar = document.getElementById("calendar");
+
+let currentMonth = 1;
+let currentYear = 2026;
+
+const events = {
+    "2026-2-3": { text: "🔥 UFC Fight Night", class: "ufc" },
+    "2026-2-19": { text: "🌙 Start of Ramadan", class: "ramadan" },
+    "2026-2-20": { text: "🌙 Ramadan", class: "ramadan" },
+    "2026-2-21": { text: "🌙 Ramadan", class: "ramadan" },
+    "2026-2-22": { text: "🌙 Ramadan", class: "ramadan" },
+
+    "2026-2-4": { text: "🏀 Basketball training", class: "ufc" },
+    "2026-2-6": { text: "🎮 Play games", class: "ufc" },
+    "2026-2-8": { text: "🎨 Drawing", class: "ufc" },
+    "2026-2-10": { text: "🚶 Walk outside", class: "ufc" },
+    "2026-2-12": { text: "🏋️ Training", class: "ufc" },
+    "2026-2-16": { text: "🏀 Basketball practice", class: "ufc" },
+
+    "2026-3-8": { text: "🥊 UFC: Holloway vs Oliveira", class: "ufc" },
+
+    "2026-3-1": { text: "🌙 Ramadan", class: "ramadan" },
+    "2026-3-2": { text: "🌙 Ramadan", class: "ramadan" },
+    "2026-3-3": { text: "🌙 Ramadan", class: "ramadan" },
+    "2026-3-4": { text: "🌙 Ramadan", class: "ramadan" },
+    "2026-3-5": { text: "🌙 Ramadan", class: "ramadan" },
+    "2026-3-6": { text: "🌙 Ramadan", class: "ramadan" },
+    "2026-3-7": { text: "🌙 Ramadan", class: "ramadan" },
+    "2026-3-9": { text: "🌙 Ramadan", class: "ramadan" },
+    "2026-3-10": { text: "🌙 Ramadan", class: "ramadan" },
+    "2026-3-11": { text: "🌙 Ramadan", class: "ramadan" },
+    "2026-3-12": { text: "🌙 Ramadan", class: "ramadan" },
+    "2026-3-13": { text: "🌙 Ramadan", class: "ramadan" },
+    "2026-3-14": { text: "🌙 Ramadan", class: "ramadan" },
+    "2026-3-15": { text: "🌙 Ramadan", class: "ramadan" },
+    "2026-3-16": { text: "🌙 Ramadan", class: "ramadan" },
+    "2026-3-17": { text: "🌙 Ramadan", class: "ramadan" },
+    "2026-3-18": { text: "🌙 Ramadan", class: "ramadan" },
+    "2026-3-19": { text: "🌙 End of Ramadan", class: "ramadan" },
+};
+
+function renderCalendar(month, year) {
+    calendar.innerHTML = "";
+
+    const monthNames = [
+        "January","February","March","April","May","June",
+        "July","August","September","October","November","December"
+    ];
+
+    monthTitle.innerHTML = `🌸 ${monthNames[month]} ${year} 🌸`;
+
+    const dayNames = ["Mon","Tue","Wed","Thu","Fri","Sat","Sun"];
+    dayNames.forEach(d => {
+        const el = document.createElement("div");
+        el.className = "day-name";
+        el.textContent = d;
+        calendar.appendChild(el);
+    });
+
+    const firstDay = new Date(year, month, 1);
+    const startDay = (firstDay.getDay() + 6) % 7;
+    const daysInMonth = new Date(year, month + 1, 0).getDate();
+
+    for (let i = 0; i < startDay; i++) {
+        const empty = document.createElement("div");
+        empty.className = "day empty";
+        calendar.appendChild(empty);
+    }
+
+    const today = new Date();
+
+    for (let d = 1; d <= daysInMonth; d++) {
+        const day = document.createElement("div");
+        day.className = "day";
+
+        const date = document.createElement("div");
+        date.className = "date";
+        date.textContent = d;
+        day.appendChild(date);
+
+        const key = `${year}-${month + 1}-${d}`;
+        if (events[key]) {
+            const event = document.createElement("div");
+            event.className = "event " + events[key].class;
+            event.textContent = events[key].text;
+            day.appendChild(event);
+        }
+
+        if (
+            today.getDate() === d &&
+            today.getMonth() === month &&
+            today.getFullYear() === year
+        ) {
+            day.classList.add("today");
+        }
+
+        calendar.appendChild(day);
+    }
+}
+
+document.getElementById("prevMonth").onclick = () => {
+    currentMonth--;
+    renderCalendar(currentMonth, currentYear);
+};
+
+document.getElementById("nextMonth").onclick = () => {
+    currentMonth++;
+    renderCalendar(currentMonth, currentYear);
+};
+
+document.addEventListener("keydown", function(e) {
+    if (e.ctrlKey && e.key === "s") {
+        e.preventDefault();
+
+        const html = document.documentElement.outerHTML;
+        const blob = new Blob([html], { type: "text/html" });
+
+        const a = document.createElement("a");
+        a.href = URL.createObjectURL(blob);
+        a.download = "calendar.html";
+        a.click();
+    }
+});
+
+renderCalendar(currentMonth, currentYear);
+</script>
 
 </body>
 </html>
-
-
