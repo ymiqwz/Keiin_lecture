@@ -223,3 +223,39 @@ h1 {
                 inset 0 0 15px #ff99d6;
     transform: scale(1.05);
 }
+.special {
+    background: #ff69b4;
+    color: white;
+    border-radius: 14px;
+    padding: 8px;
+    font-weight: bold;
+    box-shadow: 0 0 14px #ff69b4;
+    transform: scale(1.08);
+    display: inline-block;
+
+    animation: specialPulse 2s infinite ease-in-out;
+}
+
+.day.today {
+    background: #ff69b4;
+    color: white;
+    box-shadow: 0 0 35px #ff1493;
+    transform: scale(1.08);
+
+    animation: todayPulse 2s infinite ease-in-out;
+}
+
+@keyframes todayPulse {
+    0% {
+        transform: scale(1.05);
+        box-shadow: 0 0 15px #ff69b4;
+    }
+    50% {
+        transform: scale(1.12);
+        box-shadow: 0 0 40px #ff1493;
+    }
+    100% {
+        transform: scale(1.05);
+        box-shadow: 0 0 15px #ff69b4;
+    }
+}
